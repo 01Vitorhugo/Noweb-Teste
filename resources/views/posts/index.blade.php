@@ -19,6 +19,7 @@
                 </form>
             @else
                 <a href="{{ route('login') }}" class="text-blue-600 hover:underline">Fazer Login</a>
+                <a href="{{ route('register') }}" class="text-blue-600 hover:underline">Fazer Cadastro</a>
             @endauth
         </div>
 
