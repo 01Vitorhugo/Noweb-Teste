@@ -27,9 +27,9 @@
                 <select name="category_id" class="w-full border p-2 rounded">
                     <option value="">Todas as Categorias</option>
                     @foreach($categories as $category)
-                        <option value="{{ $category->id }}" {{ request('category_id') == $category->id ? 'selected' : '' }}>
-                            {{ $category->name }}
-                        </option>
+                      <option value="{{ $category->id }}" @selected(request('category_id') == $category->id)>
+                        {{ $category->name }}
+                      </option>
                     @endforeach
                 </select>
             </div>

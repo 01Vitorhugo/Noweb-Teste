@@ -18,29 +18,15 @@ class PostController extends Controller
     }
 
     public function index(Request $request)
-    {
-        $query = Post::with(['category', 'user']);
+{
+    // Todos os inputs (title, category_id, tag) para o Service
+    $posts = $this->postService->listPosts($request->all());
+    
+    // Categorias para preencher o <select> do filtro na View
+    $categories = \App\Models\Category::all();
 
-        // Filtros otimizados
-        if ($request->filled('title')) {
-            $query->where('title', 'like', "%{$request->title}%");
-        }
-        if ($request->filled('tag')) {
-            $query->where('tag', $request->tag);
-        }
-        if ($request->filled('category_id')) {
-            $query->where('category_id', $request->category_id);
-        }
-
-        $posts = $query->latest()->paginate(10);
-
-        if ($request->wantsJson()) {
-            return response()->json($posts);
-        }
-
-        $categories = Category::all();
-        return view('posts.index', compact('posts', 'categories'));
-    }
+    return view('posts.index', compact('posts', 'categories'));
+}
 
     public function create()
     {
