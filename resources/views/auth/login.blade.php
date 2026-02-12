@@ -10,12 +10,13 @@
         <h2 class="text-2xl font-bold mb-6 text-center">Login</h2>
 
         @if($errors->any())
-            <div class="bg-red-100 text-red-600 p-2 mb-4 rounded text-sm">
+            <div class="bg-red-100 text-red-600 p-2 mb-4 rounded text-sm text-center">
                 {{ $errors->first() }}
             </div>
         @endif
 
         <form action="{{ route('login.post') }}" method="POST">
+
             @csrf
             <div class="mb-4">
                 <label class="block text-gray-700">E-mail</label>
