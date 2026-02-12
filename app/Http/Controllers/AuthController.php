@@ -58,7 +58,7 @@ public function register(RegisterRequest $request)
     if (!Auth::attempt($credentials)) {
         return $request->wantsJson() 
             ? response()->json(['message' => 'Credenciais inválidas'], 401) 
-            : back()->withErrors(['email' => 'As credenciais informadas não coincidem com nossos registros.']);
+            : back()->withErrors(['email' => 'Email ou senha incorretos!']);
     }
 
     $request->session()->regenerate();
