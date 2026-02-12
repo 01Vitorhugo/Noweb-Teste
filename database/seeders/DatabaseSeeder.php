@@ -25,8 +25,8 @@ class DatabaseSeeder extends Seeder
         'password' => bcrypt('password123'),
     ]);
 
-    // Cria 10 posts para o seu usuário e 10 aleatórios
-    \App\Models\Post::factory(10)->create(['user_id' => $user->id]);
+   
+    \App\Models\Post::factory(50)->create(['user_id' => $user->id]);
     \App\Models\Post::factory(10)->create();
 }
 }
