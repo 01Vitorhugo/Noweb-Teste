@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
     ]);
 
    
-    \App\Models\Post::factory(50)->create(['user_id' => $user->id]);
-    \App\Models\Post::factory(10)->create();
+    \App\Models\Post::factory(5)->create(['user_id' => $user->id]);
+    \App\Models\Post::factory(5)->create();
 }
 }
