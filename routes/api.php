@@ -11,6 +11,5 @@ Route::get('/reports/posts-by-category', [PostController::class, 'reportByCatego
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::middleware('auth:sanctum')->group(function () {
-Route::apiResource('posts', PostController::class)->except(['index', 'show']);
 Route::post('/logout', [AuthController::class, 'logout']);
 });
