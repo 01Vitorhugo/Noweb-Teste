@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Services\PostService;
 use Illuminate\Http\Request;
 use App\Http\Requests\StorePostRequest; 
+use Illuminate\Support\Facades\Gate;
 
 class PostController extends Controller
 {
@@ -44,7 +45,7 @@ public function store(Request $request)
             'content'     => $request->content ?? 'Conteúdo forçado',
             'summary'     => $request->summary ?? 'Resumo',
             'tag'         => $request->tag ?? 'teste',
-            'user_id'     => 12, // ID do Vitor Hugo para teste de envio para o banco
+            'user_id'     => $request->user()->id,
             'created_at'  => now(),
             'updated_at'  => now(),
         ]);
@@ -66,21 +67,31 @@ public function store(Request $request)
         return view('posts.show', compact('post'));
     }
 
-    public function edit(Post $post)
+   public function edit(Request $request)
     {
-        $this->authorize('update', $post);
+        
+        $post = Post::findOrFail($request->id);
+        
+
+         if ($post->user_id !== $request->user()->id) {
+             abort(403, 'Acesso negado');
+         }
+
         $categories = Category::all();
         return view('posts.edit', compact('post', 'categories'));
     }
 
+
     public function update(Request $request, Post $post) 
     {
-        $this->authorize('update', $post);
+        Gate::authorize('update', $post);
         
         $data = $request->validate([
             'title'       => 'required|string|max:255',
             'category_id' => 'required|exists:categories,id',
             'content'     => 'required|string',
+            'summary'     => 'required|string|max:500',
+            'tag'         => 'required|string|max:50',
         ]);
 
         $updatedPost = $this->postService->updatePost($post, $data);
@@ -92,7 +103,8 @@ public function store(Request $request)
 
     public function destroy(Post $post)
     {
-        $this->authorize('delete', $post);
+        Gate::authorize('delete', $post);
+        
         $post->delete();
 
         return request()->wantsJson() 
