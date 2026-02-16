@@ -19,7 +19,16 @@
 
 ## 🛠️ Como Executar o Projeto
 
-1. **Clone o repositório:**
+
+1. **Instale o Xampp:**
+https://www.apachefriends.org/pt_br/index.html
+
+
+2. **Clica em 'start' no Apache e MySQL**
+![alt text](image.png)
+
+
+3. **Clone o repositório:**
     Abra o terminal e execute:
 
    ```bash
@@ -28,7 +37,7 @@
 
 
 
-2. **Instale as dependências:**
+4. **Instale as dependências:**
     Instale os pacotes do PHP e compile os assets do Frontend:
 
     # Dependências do Laravel
@@ -39,25 +48,27 @@
 
 
 
-3. **Configure o Ambiente:**
+5. **Configure o Ambiente:**
     Crie o arquivo de configuração e gere a chave de segurança:
 
     # Copia o arquivo de exemplo
     cp .env.example .env
 
     # Gere a chave da aplicação
-    php artisan key:generate
+    php artisan key:generate 
+
+    Cole a chave no seu arquivo .env (APP_KEY=)
 
 
 
-4. **Prepare o Banco de Dados:**
+6. **Prepare o Banco de Dados:**
     Crie as tabelas e popule-as com os dados de teste (usuários e categorias):
 
     php artisan migrate:fresh --seed
 
 
 
-5. **Inicie o servidor:**
+7. **Inicie o servidor:**
     Com tudo configurado, suba o servidor local:
 
     php artisan serve
