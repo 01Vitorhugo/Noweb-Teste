@@ -40,21 +40,20 @@ https://www.apachefriends.org/pt_br/index.html
 4. **Instale as dependências:**
     Instale os pacotes do PHP e compile os assets do Frontend:
 
-    # Dependências do Laravel
+    ## Dependências do Laravel
     composer install
 
-    # Dependências de Estilização (Tailwind CSS)
+    ## Dependências de Estilização (Tailwind CSS)
     npm install && npm run build
-
 
 
 5. **Configure o Ambiente:**
     Crie o arquivo de configuração e gere a chave de segurança:
 
-    # Copia o arquivo de exemplo
+    ## Copia o arquivo de exemplo
     cp .env.example .env
 
-    # Gere a chave da aplicação
+    ## Gere a chave da aplicação
     php artisan key:generate 
 
     Cole a chave no seu arquivo .env (APP_KEY=)
