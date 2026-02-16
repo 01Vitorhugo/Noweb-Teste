@@ -18,11 +18,11 @@ class DatabaseSeeder extends Seeder
     // Cria 5 categorias primeiro
     $categories = \App\Models\Category::factory(5)->create();
 
-    // Cria o seu usuário de teste (para você logar no Postman)
+    // Cria o seu usuário de teste 
     $user = \App\Models\User::factory()->create([
         'name' => 'Admin',
         'email' => 'admin@teste.com',
-        'password' => bcrypt('password123'),
+        'password' => bcrypt('12345678'),
     ]);
 
    
