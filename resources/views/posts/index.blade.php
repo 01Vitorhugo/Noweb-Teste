@@ -28,12 +28,22 @@
                 <select name="category_id" class="w-full border p-2 rounded">
                     <option value="">Todas as Categorias</option>
                     @foreach($categories as $category)
-                      <option value="{{ $category->id }}" @selected(request('category_id') == $category->id)>
+                      <option value="{{ $category->id }}" >
                         {{ $category->name }}
                       </option>
                     @endforeach
                 </select>
             </div>
+
+            <div class="flex-1">
+                <input type="text" name="title" value="{{ request('search') }}" placeholder="Buscar por título" class="w-full border p-2 rounded">
+            </div>
+
+            <div class="flex-1">
+                <input type="text" name="tag" value="{{ request('search') }}" placeholder="Buscar por tag" class="w-full border p-2 rounded">
+            </div>
+
+           
             <button type="submit" class="bg-gray-800 text-white px-6 py-2 rounded">Filtrar</button>
             <a href="{{ route('posts.index') }}" class="py-2 text-gray-500 text-sm flex items-center">Limpar</a>
         </form>
@@ -48,6 +58,7 @@
                         <div class="text-sm text-gray-400">
                             Categoria: <span class="font-semibold">{{ $post->category->name }}</span> | 
                             Autor: <span class="font-semibold">{{ $post->user->name }}</span>
+                            Tag: <span class="font-semibold">{{ $post->tag }}</span>
                         </div>
 
                         <div class="flex gap-3 text-sm">
