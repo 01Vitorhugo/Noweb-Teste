@@ -19,7 +19,8 @@
             <div class="grid grid-cols-2 gap-4 mb-4">
                 <div>
                     <label class="block text-gray-700">Categoria</label>
-                    <select name="category_id" class="w-full border p-2 rounded">
+                    <select name="category_id" class="w-full border p-2 rounded" required>
+                        <option value="">Selecione uma categoria</option>
                         @foreach($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
@@ -27,18 +28,18 @@
                 </div>
                 <div>
                     <label class="block text-gray-700">Tag</label>
-                    <input type="text" name="tag" class="w-full border p-2 rounded" placeholder="ex: laravel">
+                    <input type="text" name="tag" class="w-full border p-2 rounded" placeholder="ex: laravel" required >
                 </div>
             </div>
 
             <div class="mb-4">
                 <label class="block text-gray-700">Resumo</label>
-                <textarea name="summary" class="w-full border p-2 rounded" rows="2"></textarea>
+                <textarea name="summary" class="w-full border p-2 rounded" rows="2" required></textarea>
             </div>
 
             <div class="mb-4">
                 <label class="block text-gray-700">Conteúdo Completo</label>
-                <textarea name="content" class="w-full border p-2 rounded" rows="5"></textarea>
+                <textarea name="content" class="w-full border p-2 rounded" rows="5" required></textarea>
             </div>
 
             <div class="flex justify-end gap-2">
