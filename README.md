@@ -33,12 +33,17 @@ https://www.apachefriends.org/pt_br/index.html
 
    ```bash
    git clone https://github.com/01Vitorhugo/Noweb-Teste.git
-   cd Noweb-Teste
-
-
+    ````
+   ```bash
+    cd Noweb-Teste
+    ````
+   
+  
 4. **Instale as dependências:**
 
    Instale o composer => https://getcomposer.org/download/
+   
+   Dica: caso de erro na instalação do composer (exit code 1), desative o antivirus da sua máquina
    
    Instale os pacotes do PHP e compile os assets do Frontend:
 
@@ -63,6 +68,7 @@ https://www.apachefriends.org/pt_br/index.html
       ````
    
     Cole a chave no seu arquivo .env (APP_KEY=)
+   
    (Caso a chave não fique visível, fecha o arquivo .env e abra novamente)
 
 
