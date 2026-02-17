@@ -32,47 +32,56 @@ https://www.apachefriends.org/pt_br/index.html
     Abra o terminal e execute:
 
    ```bash
-   git clone [https://github.com/01Vitorhugo/Noweb-Teste.git](https://github.com/01Vitorhugo/Noweb-Teste.git)
+   git clone https://github.com/01Vitorhugo/Noweb-Teste.git
    cd Noweb-Teste
 
 
-
 4. **Instale as dependências:**
-    Instale os pacotes do PHP e compile os assets do Frontend:
+
+   Instale o composer => https://getcomposer.org/download/
+   
+   Instale os pacotes do PHP e compile os assets do Frontend:
 
     ## Dependências do Laravel
+      ```bash
     composer install
+      ````
+      
 
-    ## Dependências de Estilização (Tailwind CSS)
-    npm install && npm run build
-
-
-5. **Configure o Ambiente:**
+6. **Configure o Ambiente:**
     Crie o arquivo de configuração e gere a chave de segurança:
 
     ## Copia o arquivo de exemplo
-    cp .env.example .env
+
+    ```bash
+     cp .env.example .env
+      ````
 
     ## Gere a chave da aplicação
-    php artisan key:generate 
-
+     ```bash
+      php artisan key:generate 
+      ````
+   
     Cole a chave no seu arquivo .env (APP_KEY=)
+   (Caso a chave não fique visível, fecha o arquivo .env e abra novamente)
 
 
 
-6. **Prepare o Banco de Dados:**
+8. **Prepare o Banco de Dados:**
+   (Cria a tabela teste_vaga no banco de dados) => http://localhost/phpmyadmin
+   
     Crie as tabelas e popule-as com os dados de teste (usuários e categorias):
+   ```bash
+       php artisan migrate:fresh --seed
+      ````
+   
 
-    php artisan migrate:fresh --seed
-
-
-
-7. **Inicie o servidor:**
+10. **Inicie o servidor:**
     Com tudo configurado, suba o servidor local:
 
     php artisan serve
 
-    Acesse em seu navegador: http://localhost:8000
+    Acesse em seu navegador: http://127.0.0.1:8000
 
 
 
