@@ -84,8 +84,11 @@ https://www.apachefriends.org/pt_br/index.html
 
 10. **Inicie o servidor:**
     Com tudo configurado, suba o servidor local:
+    ```bash
+          php artisan serve
+      ````
 
-    php artisan serve
+ 
 
     Acesse em seu navegador: http://127.0.0.1:8000
 
